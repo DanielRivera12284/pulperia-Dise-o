@@ -38,17 +38,17 @@ body {
 }
 
 .img1 {
-    background-image: url('img/pulpe1.jpg');
+    background-image: url('../img/pulpe1.jpg');
     animation-delay: 0s;
 }
 
 .img2 {
-    background-image: url('img/pulpe2.jpg');
+    background-image: url('../img/pulpe2.jpg');
     animation-delay: 5s;
 }
 
 .img3 {
-    background-image: url('img/pulpe3.jpg');
+    background-image: url('../img/pulpe3.jpg');
     animation-delay: 10s;
 }
 
