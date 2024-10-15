@@ -1,0 +1,61 @@
+/* Estilos para la página de carga */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.loader-wrapper {
+    text-align: center;
+    position: relative;
+}
+
+/* Estilos para el logo y su animación - Tamaño aumentado */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 250px; /* Aumentamos el tamaño del logo */
+    height: 250px;
+    animation: logo-bounce 2s infinite ease-in-out;
+}
+
+/* Animación para que el logo suba y baje */
+@keyframes logo-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Barra de carga más grande */
+.loader-bar-container {
+    width: 70%; /* Aumentamos el ancho */
+    background-color: #f3f3f3;
+    border-radius: 30px; /* Hacemos más redondeadas las esquinas */
+    overflow: hidden;
+    margin: 0 auto;
+    height: 30px; /* Aumentamos la altura */
+}
+
+.loader-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #3498db;
+    transition: width 0.4s ease;
+}
+
+.loader-wrapper p {
+    margin-top: 30px;
+    font-size: 22px; /* Texto un poco más grande */
+    color: #3498db;
+}

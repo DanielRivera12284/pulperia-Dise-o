@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando...</title>
+    <link rel="stylesheet" type="text/css" href="/css/cargando.css">
+</head>
+<body>
+    <div class="loader-wrapper">
+        <div class="logo-container">
+            <img src="/img/logoo.jpg" alt="Logo Pulpería" class="logo">
+        </div>
+        <div class="loader-bar-container">
+            <div class="loader-bar"></div>
+        </div>
+        <p>Cargando...</p>
+    </div>
+
+    <!-- Redireccionar al index cuando la carga esté completa -->
+    <script>
+        window.addEventListener("load", function() {
+            const loaderWrapper = document.querySelector('.loader-wrapper');
+            setTimeout(function() {
+                window.location.href = 'index.html'; // Redirecciona a index.html al completar la carga
+            }, 7000); // Simulación de 9 segundos de carga antes de redireccionar
+        });
+
+        // Simulación de la barra de carga
+        let width = 0;
+        const progress = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(progress);
+            } else {
+                width += 1;
+                document.querySelector('.loader-bar').style.width = width + '%';
+            }
+        }, 70); // Velocidad ajustada para una duración total de 9 segundos
+    </script>
+</body>
+</html>

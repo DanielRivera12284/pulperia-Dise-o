@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnes</title>
+    <link rel="stylesheet" type="text/css" href="/css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Menú de navegación con carrito -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="/img/logoo.jpg" alt="La Pulperia Catracha Logo">
+                </a>
+                <h1>Pulpería la esquinita</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+            
+                <!-- Menú desplegable para "Categoría" -->
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Categoría</a>
+                    <div class="dropdown-content">
+                        <a href="carnes.html">Carnes</a>
+                        <a href="refrescos.html">Refrescos</a>
+                        <a href="botanas.html">Botanas</a>
+                        <a href="verduras.html">Verduras</a>
+                        <a href="frutas.html">Frutas</a>
+                    </div>
+                </li>
+            
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contáctenos</a></li>
+            </ul>
+            <!-- Carrito en la parte derecha del menú -->
+            <div class="cart-menu" onclick="toggleCartModal()">
+                <a href="javascript:void(0)">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <span class="cart-total">L 0.00</span>
+            </div>
+        </nav>
+    </header>
+
+<!-- Modal del carrito de compras -->
+<div id="cart-modal" class="cart-modal">
+    <div class="cart-modal-content">
+        <span class="close" onclick="toggleCartModal()">&times;</span>
+        <h2>Carrito de Compras</h2>
+        <div id="cart-items-list"></div>
+        <h3>Subtotal: L <span id="cart-subtotal">0.00</span></h3>
+        <div class="cart-actions">
+            <button class="btn-clear-cart" onclick="clearCart()">Vaciar carrito</button>
+            <button class="btn-continue-shopping" onclick="toggleCartModal()">Continuar comprando</button>
+            <button class="btn-checkout">Ir a pagar</button>
+        </div>
+    </div>
+</div>
+
+
+    <div class="productos-section">
+        <h2>Nuestros Productos de Carnes</h2>
+        <div class="grid-productos" id="productos-grid">
+            <!-- Producto con selector de cantidad -->
+            <div class="producto-card">
+                <img src="/img/carne2.jpg" alt="Carne de Res" onclick="openModal(this.src)">
+                <h3>Carne de Res</h3>
+                <p>L. 200.00</p>
+                <p>Disponible</p>
+                <div class="quantity-selector">
+                    <button class="decrement" onclick="updateQuantity('decrease', this)">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="increment" onclick="updateQuantity('increase', this)">+</button>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Carne de Res', 200, this)">Agregar al carrito</button>
+            </div>
+            <div class="producto-card">
+                <img src="/img/carneCerdo.jpg" alt="Carne de Cerdo" onclick="openModal(this.src)">
+                <h3>Carne de Cerdo</h3>
+                <p>L. 180.00</p>
+                <p>Disponible</p>
+                
+                <!-- Selector de cantidad -->
+                <div class="quantity-selector">
+                    <button class="decrement" onclick="updateQuantity('decrease', this)">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="increment" onclick="updateQuantity('increase', this)">+</button>
+                </div>
+                
+                <button class="add-to-cart-btn" onclick="addToCart('Carne de Cerdo', 180, this)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto-card">
+                <img src="/img/carne3.jpg" alt="Carne de Pollo" onclick="openModal(this.src)">
+                <h3>Carne de Pollo</h3>
+                <p>L. 150.00</p>
+                <p>Disponible</p>
+                
+                <!-- Selector de cantidad -->
+                <div class="quantity-selector">
+                    <button class="decrement" onclick="updateQuantity('decrease', this)">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="increment" onclick="updateQuantity('increase', this)">+</button>
+                </div>
+                
+                <button class="add-to-cart-btn" onclick="addToCart('Carne de Pollo', 150, this)">Agregar al carrito</button>
+            </div>
+            <div class="producto-card">
+                <img src="/img/carne4.png" alt="Carne de Pollo" onclick="openModal(this.src)">
+                <h3>Carne Molida</h3>
+                <p>L. 120.00</p>
+                <p>Disponible</p>
+                
+                <!-- Selector de cantidad -->
+                <div class="quantity-selector">
+                    <button class="decrement" onclick="updateQuantity('decrease', this)">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="increment" onclick="updateQuantity('increase', this)">+</button>
+                </div>
+                
+                <button class="add-to-cart-btn" onclick="addToCart('Carne Molida', 120, this)">Agregar al carrito</button>
+            </div>
+            <div class="producto-card">
+                <img src="/img/carne5.jpg" alt="Carne de Pollo" onclick="openModal(this.src)">
+                <h3>Carne de Pavo</h3>
+                <p>L. 170.00</p>
+                <p>Disponible</p>
+                
+                <!-- Selector de cantidad -->
+                <div class="quantity-selector">
+                    <button class="decrement" onclick="updateQuantity('decrease', this)">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="increment" onclick="updateQuantity('increase', this)">+</button>
+                </div>
+                
+                <button class="add-to-cart-btn" onclick="addToCart('Carne de Pavo', 170, this)">Agregar al carrito</button>
+            </div>
+            <div class="producto-card">
+                <img src="/img/carne6.jpg" alt="Carne de Pollo" onclick="openModal(this.src)">
+                <h3>Chuleta</h3>
+                <p>L. 120.00</p>
+                <p>Disponible</p>
+                
+                <!-- Selector de cantidad -->
+                <div class="quantity-selector">
+                    <button class="decrement" onclick="updateQuantity('decrease', this)">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="increment" onclick="updateQuantity('increase', this)">+</button>
+                </div>
+                
+                <button class="add-to-cart-btn" onclick="addToCart('Chuleta', 120, this)">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <!-- Botones para ver más y ver menos productos -->
+        <button id="ver-mas" onclick="verMas()">Ver más</button>
+        <button id="ver-menos" onclick="verMenos()" style="display:none;">Ver menos</button>
+    </div>
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="Imagen ampliada">
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>Barrio la independencia | Horario: 7:00 am - 9:00 pm</p>
+        <p>&copy; Derechos Reservados 2024</p>
+        <p>Design by <a href="https://www.linkedin.com/in/tu_perfil" target="_blank">Daniel</a></p>
+    </footer>
+
+    <script src="/js/carrito.js"></script>
+</body>
+</html>
