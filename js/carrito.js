@@ -90,3 +90,42 @@ function updateQuantity(action, element) {
 
     input.value = currentQuantity;
 }
+// Número de productos a mostrar inicialmente
+let productosMostrados = 3;
+
+// Función para mostrar los productos
+function mostrarProductos() {
+    const productos = document.querySelectorAll('.producto-card'); // Seleccionamos todas las tarjetas de productos
+    productos.forEach((producto, index) => {
+        if (index < productosMostrados) {
+            producto.style.display = 'block'; // Mostrar producto si está dentro del límite
+        } else {
+            producto.style.display = 'none'; // Ocultar el resto
+        }
+    });
+
+    // Mostrar o ocultar el botón "Ver más" y "Ver menos" según corresponda
+    if (productosMostrados >= productos.length) {
+        document.getElementById('ver-mas').style.display = 'none'; // Ocultar "Ver más" si ya se muestran todos
+        document.getElementById('ver-menos').style.display = 'inline-block'; // Mostrar "Ver menos"
+    } else {
+        document.getElementById('ver-mas').style.display = 'inline-block'; // Mostrar "Ver más" si hay productos restantes
+        document.getElementById('ver-menos').style.display = 'none'; // Ocultar "Ver menos" si no se han mostrado todos
+    }
+}
+
+// Función para mostrar más productos (incrementar el límite)
+function verMas() {
+    productosMostrados += 3; // Incrementamos el límite en 3 productos
+    mostrarProductos(); // Actualizamos la vista
+}
+
+// Función para mostrar menos productos (restablecer el límite)
+function verMenos() {
+    productosMostrados = 3; // Restablecemos el límite inicial
+    mostrarProductos(); // Actualizamos la vista
+}
+
+// Ejecutar la función al cargar la página para mostrar los primeros productos
+document.addEventListener('DOMContentLoaded', mostrarProductos);
+
